@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="menu_style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+    </script>
+    <style>
+        
+        .menu-item img:hover {
+            border: 2px solid lightgray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+  <section class="menu">
+    <h2>Our Menu</h2>
+    <label for="t">Total: </label>
+    <input type="text" value="0" id="t" class="total" disabled>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="vecteezy_chicken-biryani-with-rice-and-vegetables-on-black_32478000.jpg" alt="food 1" onmouseover="highlightImage(this)" onmouseout="unhighlightImage(this)">
+            <h3>Chicken Biryanfood
+            <p>Biryani is a delicious rice dish peppered with scrumptious spices like saffron and cumin and further layered with spiced meat or veggie protein.</p>
+            <p>Price: Rs <span>349</span></p>
+            <a href="#" class="btn">Order now</a>
+          
+          </div>
+          <div class="menu-item">
+            <img src="vecteezy_juicy-and-grilled-chicken-kebab-skewers_29607908.jpg" alt="food 2" onmouseover="highlightImage(this)" onmouseout="unhighlightImage(this)">
+            <h3>Chicken Kabab</h3>
+            <p>Tandoori chicken kebabs are the epitome of smoky perfection. Marinated in a mixture of yogurt, spices, and a dash of citrus, the chicken is then cooked in a tandoor (clay oven) to achieve that distinct charred flavor.</p>
+            <p>Price: Rs<span>199</span></p>
+            <a href="#" class="btn">Order now</a>
+          </div>
+          <div class="menu-item">
+            <img src="vecteezy_crispy-fried-chicken-on-the-wooden-board-with-dark-lighting_27671368.jpg" alt="food 3" onmouseover="highlightImage(this)" onmouseout="unhighlightImage(this)">
+            <h3>Crispy Fried Chicken</h3>
+            <p>ried chicken is also topped with chili like paprika, or hot sauce to give it a spicy taste. This is especially common in fast food restaurant chains such as KFC.</p>
+            <p>Price: Rs <span>150</span></p>
+            <a href="#" class="btn">Order now</a>
+          </div>
+          <div class="menu-item">
+            <img src="Screenshot 2024-04-21 114348.png" alt="food 3" onmouseover="highlightImage(this)" onmouseout="unhighlightImage(this)">
+            <h3>Shawarma </h3>
+            <p> Shawarma is typically made with a combination of aromatic spices, including cumin, coriander, paprika, turmeric, and garlic, which create a rich and complex flavor profile.he seasonings are what give shawarma its distinct and delicious taste.</p>
+            <p>Price: Rs <span>150</span></p>
+            <a href="#" class="btn">Order now</a>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        var a=0;
+          // Function to highlight image on mouseover
+          function highlightImage(image) {
+              image.style.border = "2px solid lightgray";
+          }
+
+          // Function to remove highlight on mouseout
+          function unhighlightImage(image) {
+              image.style.border = "none";
+          }
+
+          $(document).ready(function(){
+            $(".btn").click(function(){
+              var b=$(this).closest(".menu-item").find("span").text();
+              a+=parseInt(b);
+              alert("Your food item is added");
+              $(".total").val(a);
+            })
+          })
+      </script>
+</body>
+</html>
+

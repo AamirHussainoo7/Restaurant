@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Kitchen Home</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+  </script>
+</head>
+<body>
+	<header>
+	  <div class="logo">
+		<img src="Screenshot 2024-04-09 092825.png" alt="Kitchen Logo">
+	  </div>
+	  <nav>
+		<ul>
+		  <li><a href="#home">Home</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="menu.html">Menu</a></li>
+		  <li><a href="reservation.html">Reservations</a></li>
+		  <li><a href="contact us.html">Contact</a></li>
+      <li class="login"><a href="signup.html">Sign Up</a></li>
+      <li class="login"><a href="Login.html">Login</a></li>
+      <li class="logout"><a href="/logout">Logout</a></li>
+		</ul>
+	  </nav>
+	</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Kitchen Home</h1>
+    <p>Your Kitchen and Home at one place.</p>
+    <a href="menu.html" class="btn">Explore Our Menu</a>
+  </div>
+</section>
+
+<section class="about dark-theme">
+  <div class="about-content">
+    <h2>About Kitchen Home</h2>
+    <p>Welcome to Kitchen Home, where every meal is a celebration of home-cooked goodness!</p>
+    <p>Nestled in the heart of Punjab, Kitchen Home is more than just a restaurant - it's a culinary sanctuary where friends and families come together to savor delicious flavors, warm hospitality, and unforgettable moments.</p>
+    <p>At Kitchen Home, we believe that great food has the power to bring people together, create lasting memories, and nourish the soul. So come on in, take a seat at our table, and let us treat you to a dining experience that feels like home.</p>
+    <a href="menu.html" class="btn">Explore Our Menu</a>
+  </div>
+  <div class="about-image">
+    <img src="close-up-appetizing-ramadan-meal_23-2151182515.jpg" alt="About Image">
+  </div>
+</section>
+
+
+<section class="testimonials">
+  <h2>What Our Customers Say</h2>
+  <div class="testimonial">
+    <h4><u>John Doe</u></h4>
+    <img src="customer1.jpg" alt="Customer 1">
+    <p>"I recently visited Kitchen Home for a family dinner, and it exceeded my expectations. The ambiance was charming, and the staff were incredibly attentive. We ordered a variety of dishes from the menu, and each one was beautifully presented and packed with flavor. </p>
+    
+  </div>
+  <div class="testimonial">
+    <h4><u>Jane Smith</u></h4>
+    <img src="customer2.jpg" alt="Customer 2">
+    <p>"Berger Hut never disappoints! The quality of their burgers and the friendly service make it a top-notch dining experience. I highly recommend it to all burger lovers!"</p>
+    
+  </div>
+  <div class="testimonial">
+    <h4><u>Sophia conners</u></h4>
+    <img src="Brazil.png" alt="Customer 3">
+    <p>"I stumbled upon Kitchen Home while exploring the neighborhood, and I'm so glad I did! The restaurant has a cozy, homey vibe that instantly puts you at ease. I ordered the special of the day, and it was absolutely delicious - a perfect blend of flavors and textures.</p>
+    
+  </div>
+</section>
+
+<section class="gallery">
+
+  <h2>Gallery</h2>
+  <div class="image-grid">
+    <div class="image-item">
+      <img src="gg1.jpg" alt="Image 1">
+    </div>
+    <div class="image-item">
+      <img src="gg2.jpg" alt="Image 2">
+    </div>
+    <div class="image-item">
+      <img src="gg3.jpg" alt="Image 3">
+    </div>
+    <div class="image-item">
+      <img src="gg4.jpg" alt="Image 4">
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="Screenshot 2024-04-09 092825.png" alt="Logo">
+    </div>
+    <nav class="footer-links">
+      <a href="#">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="reservation.html">Reservations</a>
+      <!-- <a href="#">Testimonials</a>
+      <a href="#">Gallery</a> -->
+      <a href="contack us.html">Contact</a>
+    </nav>
+  </div>
+  <p class="footer-text">&copy; 2024 Kitchen Home. All rights reserved.</p>
+</footer>
+<script>
+  $(document).ready(function(){
+    $(".logout").hide();
+    $(window).on("load",function(){
+        fetch('/log')
+        .then(response =>{
+            if(!response.ok){
+                throw new Error('Network response was not ok');
+
+            }
+            return response.json();
+        })
+        .then(data => {
+            if(data.loggedIn===true){
+                $(".logout").show();
+                $(".login").hide();
+
+            }else{
+                $(".login").show();
+                $(".logout").hide();
+            }
+        })
+       
+    })
+})
+</script>
+
+</body>
